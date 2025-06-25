@@ -1,0 +1,387 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Cinzel', serif;
+}
+
+/* COLORES Y FONDO */
+html, body {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background-image: url("img/FondoBody.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: center;
+    color: #fff;
+}
+
+/* HEADER */
+header {
+    background: rgba(255, 255, 255, 0.85);
+    color: #313030;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 40px;
+    box-shadow: 0 2px 8px rgba(255, 0, 0, 0.3);
+}
+
+.logo img {
+    height: 50px;
+}
+
+/* BOTÓN MENU HAMBURGUESA */
+.menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 32px;
+    color: #ff0000;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+/* MENÚ CENTRADO */
+nav {
+    flex: 1;
+    text-align: center;
+}
+
+nav ul.menu {
+    display: inline-flex;
+    list-style: none;
+    gap: 25px;
+    position: relative;
+}
+
+nav ul.menu > li {
+    position: relative;
+}
+
+nav a {
+    color: #000000;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px 16px;
+    position: relative;
+    z-index: 1;
+    transition: 0.3s ease;
+}
+
+/* HOVER EFECTO FUEGO/LUZ */
+nav a::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 120%;
+    height: 0%;
+    background: radial-gradient(circle, rgba(255,0,0,0.5), transparent 70%);
+    transform: translate(-50%, -50%) scale(0);
+    transition: 0.4s ease;
+    border-radius: 50%;
+    z-index: -1;
+}
+
+nav a:hover::before {
+    height: 200%;
+    transform: translate(-50%, -50%) scale(1);
+}
+nav a:hover {
+    color: #ffffff;
+    text-shadow: 0 0 10px #ff0000;
+}
+
+/* SUBMENÚ */
+.submenu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: rgba(255, 255, 255, 0.95);
+    min-width: 180px;
+    box-shadow: 0 4px 8px rgba(255, 0, 0, 0.2);
+    border: 1px solid #ff0000;
+    z-index: 1000;
+}
+
+.menu li:hover .submenu {
+    display: block;
+}
+
+.submenu li {
+    padding: 10px;
+    text-align: left;
+}
+
+.submenu li a {
+    display: block;
+    color: #000000;
+    padding: 5px 15px;
+    transition: all 0.3s ease;
+}
+
+.submenu li a:hover {
+    background-color: #ecc607;
+    color: #fff;
+    border-radius: 4px;
+}
+
+/* LLÁMANOS */
+.llamanos {
+    background: linear-gradient(to right, #ff0000, #ff9900);
+    padding: 10px 20px;
+    color: white;
+    text-decoration: none;
+    border-radius: 20px;
+    font-weight: bold;
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+}
+
+/* HERO */
+.hero {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(3px);
+}
+
+.texto, .imagen {
+    flex: 1 1 45%;
+    padding: 20px;
+    color: white;
+}
+
+.texto h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.texto p {
+    font-size: 1.3em;
+    margin-bottom: 20px;
+}
+
+.social a img {
+    height: 28px;
+    margin-right: 12px;
+}
+
+.imagen img {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(255, 0, 0, 0.5);
+}
+
+/* SECCIÓN PRODUCTOS */
+.productos {
+    max-width: 1000px;
+    margin: 50px auto;
+    padding: 0 20px;
+    text-align: center;
+    color: #fff;
+}
+
+.productos h2 {
+    font-family: 'Rubik', sans-serif;
+    font-size: 2.8em;
+    margin-bottom: 30px;
+    color: #ff0000;
+}
+
+/* CONTENEDOR TARJETAS: usamos grid para controlar filas y columnas */
+.tarjetas-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    justify-items: center;
+}
+
+/* TARJETA */
+.tarjeta-producto {
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.6);
+    max-width: 300px;
+    padding: 20px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.3s ease;
+}
+
+.tarjeta-producto:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 25px rgba(255, 0, 0, 0.9);
+}
+
+.tarjeta-producto img {
+    max-width: 100%;
+    border-radius: 12px;
+    margin-bottom: 15px;
+}
+
+.tarjeta-producto h3 {
+    font-family: 'Rubik', sans-serif;
+    margin-bottom: 12px;
+    color: #ff3300;
+}
+
+.tarjeta-producto p {
+    font-size: 1em;
+    margin-bottom: 18px;
+}
+
+/* FOOTER */
+footer {
+    background: rgba(255, 255, 255, 0.85);
+    color: #000000;
+    padding: 40px 20px;
+}
+
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 800px;
+    margin: auto;
+    gap: 30px;
+}
+
+.footer-logo img {
+    height: 40px;
+    margin-bottom: 10px;
+}
+
+.footer-section h4 {
+    margin-bottom: 10px;
+    font-size: 1.1em;
+    color: #1000ea;
+}
+
+.footer-section p,
+.footer-section a,
+.footer-section li {
+    font-size: 0.95em;
+    line-height: 1.5;
+    color: #000000;
+    text-decoration: none;
+    list-style: none;
+}
+
+.footer-section a:hover {
+    color: #ff9900;
+    text-decoration: underline;
+}
+
+/* BOTÓN SUBIR */
+#btnSubir {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: linear-gradient(to top, #ff0000, #ff9900);
+    color: white;
+    border: none;
+    padding: 14px;
+    border-radius: 50%;
+    font-size: 20px;
+    cursor: pointer;
+    display: none;
+    box-shadow: 0 0 12px rgba(255, 0, 0, 0.8);
+    transition: all 0.3s ease;
+}
+
+#btnSubir:hover {
+    background: #ff3300;
+    box-shadow: 0 0 20px #ff6600;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .logo {
+        order: 1;
+    }
+
+    .header-buttons {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        order: 2;
+        padding: 0 40px;
+        max-width: 600px;
+    }
+
+    .menu-btn {
+        display: block;
+        font-size: 32px;
+        color: #ff0000;
+        background: none;
+        border: none;
+        cursor: pointer;
+        z-index: 1001;
+    }
+
+    .llamanos {
+        padding: 10px 20px;
+        font-weight: bold;
+        border-radius: 20px;
+        box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+    }
+
+    nav ul.menu {
+        flex-direction: column;
+        gap: 12px;
+        display: none;
+        background: rgba(255, 255, 255, 0.95);
+        border-radius: 12px;
+        padding: 20px 40px;
+        width: fit-content;
+        margin: 0 auto 20px auto;
+        box-shadow: 0 0 20px rgba(255, 0, 0, 0.3);
+        position: relative;
+        z-index: 1000;
+    }
+
+    nav ul.menu.active {
+        display: flex;
+    }
+
+    nav a {
+        color: #000000;
+        font-weight: 700;
+        padding: 12px 20px;
+        position: relative;
+    }
+
+    nav a::before {
+        background: radial-gradient(circle, rgba(255,0,0,0.5), transparent 70%);
+    }
+
+    /* Las tarjetas se ponen 1 columna y max width 100% en móvil */
+    .tarjetas-container {
+        display: block;
+        padding: 0 10px;
+    }
+
+    .tarjeta-producto {
+        max-width: 100%;
+        margin-bottom: 30px;
+    }
+}
